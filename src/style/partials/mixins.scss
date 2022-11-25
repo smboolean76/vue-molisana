@@ -1,0 +1,36 @@
+/*----------------------------
+    BACKGROUND IMG
+-----------------------------*/
+@mixin bg-img($url) {
+  background-image: url($url);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/*----------------------------
+    RESPONSIVE | MEDIA QUERIES
+-----------------------------*/
+
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+@mixin media-breakpoint-up($size) {
+  $value: map-get($breakpoints, $size);
+  @media screen and (min-width: $value) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-down($size) {
+  $value: map-get($breakpoints, $size);
+  @media screen and (max-width: $value) {
+    @content;
+  }
+}
